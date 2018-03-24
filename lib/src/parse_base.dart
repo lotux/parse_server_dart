@@ -1,11 +1,8 @@
 // TODO: Put public facing types in this file.
-import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'package:http/src/streamed_response.dart';
-import 'package:http/src/base_request.dart';
 import 'parse_object.dart';
 import 'parse_user.dart';
 import 'parse_livequery.dart';
+import 'parse_http_client.dart';
 
 class Credentials {
   final String applicationId;
@@ -32,24 +29,6 @@ abstract class ParseBaseObject {
   ParseBaseObject(String this.className, [ParseHTTPClient this.client]);
 }
 
-class ParseHTTPClient extends http.BaseClient {
-  final http.Client _client = new http.Client();
-  final String _userAgent = "Dart Parse SDK 0.1";
-  String baseURL;
-  String liveQueryURL;
-  User currentUser;
-  Credentials credentials;
-  ParseHTTPClient();
-
-
-  @override
-  Future<StreamedResponse> send(BaseRequest request) {
-    request.headers['user-agent'] = _userAgent;
-    request.headers['X-Parse-Application-Id'] = credentials.applicationId;
-    request.headers['Content-Type']= 'application/json';
-    return _client.send(request);
-  }
-}
 
 class Parse {
   Credentials credentials;

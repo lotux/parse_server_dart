@@ -4,6 +4,7 @@ import "package:websockets/websockets.dart";
 import './parse_base.dart';
 import "dart:convert";
 import 'dart:io';
+import 'parse_http_client.dart';
 
 class LiveQuery {
   final ParseHTTPClient client;

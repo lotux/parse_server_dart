@@ -1,4 +1,5 @@
-import '../src/parse_base.dart';
+import 'parse_base.dart';
+import 'parse_http_client.dart';
 import 'dart:convert';
 import 'dart:async';
 

@@ -1,6 +1,6 @@
 import 'dart:async';
 import './parse_base.dart';
-import './parse_object.dart';
+import 'parse_http_client.dart';
 
 class Query implements ParseBaseObject {
   String className;
