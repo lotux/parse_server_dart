@@ -1,11 +1,13 @@
-import "package:websockets/websockets.dart";
 import "dart:convert";
-
+//import "package:websockets/websockets.dart";
+import 'package:web_socket_channel/io.dart';
+import 'package:web_socket_channel/status.dart' as status;
 import 'parse_http_client.dart';
+import 'dart:io';
 
 class LiveQuery {
   final ParseHTTPClient client;
-  WebSocket channel;
+  var channel;
   Map<String, dynamic> connectMessage;
   Map<String, dynamic> subscribeMessage;
   Map<String, Function> eventCallbacks = {};
@@ -29,11 +31,13 @@ class LiveQuery {
   }
 
   subscribe(String className) async {
-    channel = await WebSocket.connect(client.liveQueryURL);
-    channel.add(JSON.encode(connectMessage));
+    //channel = await WebSocket.connect(client.liveQueryURL);
+    var webSocket = await WebSocket.connect(client.liveQueryURL);
+    channel = await new IOWebSocketChannel(webSocket);
+    channel.sink.add(JSON.encode(connectMessage));
     subscribeMessage['query']['className'] = className;
-    channel.add(JSON.encode(subscribeMessage));
-    channel.listen((message) {
+    channel.sink.add(JSON.encode(subscribeMessage));
+    channel.stream.listen((message) {
       Map<String, dynamic> actionData = JSON.decode(message);
       if (eventCallbacks.containsKey(actionData['op']))
           eventCallbacks[actionData['op']](actionData);
@@ -45,7 +49,7 @@ class LiveQuery {
   }
 
   void close(){
-    channel.sink.close();
+    channel.close();
   }
 
 }
