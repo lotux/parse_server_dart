@@ -6,6 +6,19 @@ Created from templates made available by Stagehand under a BSD-style
 [license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
 
 ## Usage
+This is still WIP, API might change
+
+- User Authentication works
+- No query builder yet
+- LiveQuery websocket works
+- Parse Object works
+
+### TODO:
+
+- Documentation
+- Query builder
+- ...
+
 
 A simple usage example:
 
@@ -19,4 +32,4 @@ A simple usage example:
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: http://example.com/issues/replaceme
+[tracker]: https://github.com/lotux/parse_server_dart/issues
