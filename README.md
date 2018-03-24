@@ -22,7 +22,7 @@ This is still WIP, API might change
 
 A simple usage example:
 
-    import 'package:parse/parse.dart';
+    import 'package:parse_server/parse.dart';
 
     main() {
       var awesome = new Parse();

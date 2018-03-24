@@ -1,4 +1,3 @@
-// TODO: Put public facing types in this file.
 import 'parse_object.dart';
 import 'parse_user.dart';
 import 'parse_livequery.dart';

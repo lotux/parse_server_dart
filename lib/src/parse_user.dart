@@ -1,6 +1,7 @@
-import '../src/parse_base.dart';
 import 'dart:convert';
 import 'dart:async';
+
+import 'parse_base.dart';
 import 'parse_http_client.dart';
 
 class User implements ParseBaseObject {
