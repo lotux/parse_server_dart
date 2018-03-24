@@ -1,4 +1,4 @@
-import 'package:parse/parse.dart';
+import 'package:parse_server/parse_server.dart';
 import 'package:test/test.dart';
 
 void main() {
