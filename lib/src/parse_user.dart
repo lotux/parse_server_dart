@@ -52,7 +52,6 @@ class User implements ParseBaseObject {
       objectData = responseData;
       this.client.credentials.sessionId = sessionId;
     }
-    print(responseData);
     return responseData;
   }
 
@@ -144,6 +143,15 @@ class User implements ParseBaseObject {
       _handleResponse(value.body);
       return objectId;
     });
+  }
+
+  Future<Map<String, dynamic>> all(){
+      final response = this.client.get(
+          client.baseURL + "${path}"
+      );
+      return response.then((value) {
+        return _handleResponse(value.body);
+      });
   }
 }
 

@@ -1,6 +1,6 @@
 name: parse_server
 description: Parse Server Dart SDK.
-version: 0.0.1
+version: 0.0.4
 homepage: https://www.github.com/lotux
 author: lotux <basirat@gmail.com>
 
